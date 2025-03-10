@@ -56,10 +56,7 @@ function mergeObjects(objects) {
  *
  */
 function removeProperties(obj, keys) {
-  // Create a shallow copy of the object to avoid mutating the original
   const result = { ...obj };
-
-  // Use Object.prototype.hasOwnProperty.call to safely check for properties
   keys.forEach((key) => {
     if (Object.prototype.hasOwnProperty.call(result, key)) {
       delete result[key];
@@ -139,8 +136,6 @@ function makeImmutable(obj) {
  */
 function makeWord(lettersObject) {
   const result = [];
-
-  // Iterate over the entries of the object
   Object.entries(lettersObject).forEach(([letter, positions]) => {
     positions.forEach((position) => {
       result[position] = letter;
